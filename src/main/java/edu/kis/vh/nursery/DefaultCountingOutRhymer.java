@@ -8,22 +8,18 @@ public class DefaultCountingOutRhymer {
     private static final int FULL = 1;
     private static final int CHECK = -1;
 
-    public int getTotal() {
-        return total;
-    }
+    public int total = -1;
 
-    private int total = -1;
-
-    protected void countIn(int in) {
+    public void countIn(int in) {
         if (!isFull())
             numbers[++total] = in;
     }
 
-    protected boolean callCheck() {
+    public boolean callCheck() {
         return total == CHECK;
     }
 
-    protected boolean isFull() {
+    public boolean isFull() {
         return total == FULL;
     }
 
@@ -33,7 +29,7 @@ public class DefaultCountingOutRhymer {
         return numbers[total];
     }
 
-    protected int countOut() {
+    public int countOut() {
         if (callCheck())
             return RETURN_VAL;
         return numbers[total--];
